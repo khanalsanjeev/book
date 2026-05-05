@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Awareness Framework | Co-Authored by Sanjeev Khanal</title>
-    <meta name="description" content="Exploring the Awareness Framework: R = O · M · P. A theoretical model co-authored by Sanjeev Khanal.">
-    
+    <title>The Awareness Framework | A Study of Consciousness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-neutral: #f9f8f6;
+            --text-main: #1a1a1a;
+            --accent-gold: #a6894b;
+        }
     <!-- JSON-LD Schema for Book -->
     <script type="application/ld+json">
     {
@@ -17,24 +23,183 @@
         "name": "Sanjeev Khanal",
         "url": "https://sanjeevkhanal.com.np"
       },
-      "genre": "Philosophy / Systems Design",
+      "genre": "Philosophy",
       "url": "https://book.sanjeevkhanal.com.np"
     }
     </script>
 
-    <style>
-        body { font-family: 'Georgia', serif; background-color: #0A0D14; color: #ffffff; text-align: center; padding: 4rem 2rem; }
-        h1 { font-size: 3.5rem; letter-spacing: 2px; }
-        .formula { font-size: 2rem; margin: 2rem 0; color: #4FC3F7; font-style: italic; }
-        .author-credit { font-size: 1.2rem; opacity: 0.8; }
-        a { color: #4FC3F7; text-decoration: none; border: 1px solid #4FC3F7; padding: 10px 20px; border-radius: 4px; }
+        body {
+            background-color: var(--bg-neutral);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden; /* Prevent scrolling for 16:9 fit */
+        }
+
+        .font-serif { font-family: 'Merriweather', serif; }
+
+        /* Header link style */
+        .nav-link {
+            font-size: 11px;
+            color: var(--text-main);
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Dropdown Logic */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.05);
+            z-index: 50;
+            border: 1px solid #e5e3e0;
+            margin-top: 8px;
+        }
+        /* Show class for JS toggle */
+        .dropdown-content.show {
+            display: block;
+        }
+        .dropdown-content a {
+            color: var(--text-main);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.2s;
+        }
+        .dropdown-content a:hover {
+            background-color: var(--bg-neutral);
+            color: var(--accent-gold);
+        }
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+
+        /* Book Image Styling */
+        .book-container {
+            perspective: 1000px;
+        }
+        .book-image {
+            width: 320px;
+            height: auto;
+            box-shadow: 20px 25px 50px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        .book-image:hover {
+            transform: rotateY(-5deg) translateX(5px);
+        }
+
+        .btn-buy {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .btn-buy:hover {
+            background-color: #8e743d;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
-<body>
-    <h1>The Awareness Framework</h1>
-    <div class="formula">R = O · M · P</div>
-    <p class="author-credit">Co-Authored by <strong>Sanjeev Khanal</strong></p>
-    <br><br>
-    <a href="https://sanjeevkhanal.com.np">Return to Author Profile</a>
+<body class="h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="h-16 flex items-center justify-between px-8 lg:px-16 border-b border-[#e5e3e0] shrink-0">
+        <div class="font-serif text-base tracking-widest uppercase font-light">The Awareness Framework</div>
+        <nav class="hidden md:flex">
+            <div class="dropdown">
+                <span class="nav-link" id="authorsBtn">
+                    Authors
+                </span>
+                <div class="dropdown-content" id="authorsDropdown">
+                    <a href="https://sanjeevkhanal.com.np">Sanjeev Khanal</a>
+                    <a href="https://www.google.com/search?q=Raheel+Budha" target="_blank" rel="noopener noreferrer">Raheel Budha</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto items-center px-8 gap-12 lg:gap-20 overflow-hidden">
+        
+        <!-- Left: Image Section -->
+        <div class="lg:w-5/12 flex justify-center items-center book-container py-4">
+            <img src="book.png" alt="The Awareness Framework Book Cover" class="book-image" onerror="this.src='https://via.placeholder.com/400x600?text=The+Awareness+Framework'">
+        </div>
+
+        <!-- Right: Content Section -->
+        <div class="lg:w-7/12 flex flex-col justify-center max-h-full py-4">
+            <div class="mb-8">
+                <h1 class="font-serif text-4xl lg:text-5xl font-normal leading-tight mb-3">The Awareness Framework</h1>
+                <div class="flex items-center gap-4">
+                    <span class="text-xs font-bold text-[#a6894b] tracking-[0.2em] uppercase">ISBN: 9789937192835</span>
+                </div>
+            </div>
+
+            <div class="space-y-6 text-[15px] leading-relaxed text-gray-600 max-w-xl text-justify">
+                <p>
+                    Reality is an emergent function of three interacting vectors. It begins with 
+                    <strong>Observation</strong>, the immediate data of present moment acting as initiation mechanism. 
+                    This is woven together by <strong>Memory</strong>, the temporal thread that provides depth and 
+                    context to the sequence of existence. Finally, <strong>Pattern Analysis</strong> allows for the recognition 
+                    of recurring geometries within the flux of experience.
+                </p>
+
+                <p class="pt-4 text-gray-900 font-medium">
+                    This book introduces a simple but powerful idea:<br>
+                    <span class="italic text-[#a6894b] text-lg">Reality emerges through awareness.</span>
+                </p>
+            </div>
+
+            <div class="mt-10 flex items-center gap-12">
+                <a href="#" target="_blank" class="btn-buy">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                    GET A COPY
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="h-12 border-t border-[#e5e3e0] flex items-center justify-between px-8 text-[9px] font-bold text-gray-400 tracking-widest uppercase shrink-0">
+        <div>Sanjeev Khanal · Raheel Budha</div>
+        <div>Lalitpur, Nepal</div>
+    </footer>
+
+    <script>
+        // Toggle dropdown on click
+        const authorsBtn = document.getElementById('authorsBtn');
+        const authorsDropdown = document.getElementById('authorsDropdown');
+
+        authorsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            authorsDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', () => {
+            if (authorsDropdown.classList.contains('show')) {
+                authorsDropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
