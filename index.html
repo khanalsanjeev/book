@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Awareness Framework | A Study of Consciousness</title>
+    <title>The Awareness Framework</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -12,28 +13,19 @@
             --text-main: #1a1a1a;
             --accent-gold: #a6894b;
         }
-    <!-- JSON-LD Schema for Book -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Book",
-      "name": "The Awareness Framework",
-      "author": {
-        "@type": "Person",
-        "name": "Sanjeev Khanal",
-        "url": "https://sanjeevkhanal.com.np"
-      },
-      "genre": "Philosophy",
-      "url": "https://book.sanjeevkhanal.com.np"
-    }
-    </script>
 
         body {
             background-color: var(--bg-neutral);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow: hidden; /* Prevent scrolling for 16:9 fit */
+        }
+
+        /* Desktop specific layout constraint preservation */
+        @media (min-width: 1024px) {
+            body {
+                overflow: hidden; /* Prevent scrolling for 16:9 fit on desktops */
+            }
         }
 
         .font-serif { font-family: 'Merriweather', serif; }
@@ -87,15 +79,21 @@
             opacity: 0.6;
         }
 
-        /* Book Image Styling */
+        /* Book Image Styling with Responsive Constraints */
         .book-container {
             perspective: 1000px;
         }
         .book-image {
-            width: 320px;
+            width: 100%;
+            max-width: 250px;
             height: auto;
             box-shadow: 20px 25px 50px rgba(0,0,0,0.15);
             transition: transform 0.3s ease;
+        }
+        @media (min-width: 640px) {
+            .book-image {
+                max-width: 320px;
+            }
         }
         .book-image:hover {
             transform: rotateY(-5deg) translateX(5px);
@@ -118,13 +116,27 @@
             transform: translateY(-1px);
         }
     </style>
-</head>
-<body class="h-screen flex flex-col">
 
-    <!-- Header -->
-    <header class="h-16 flex items-center justify-between px-8 lg:px-16 border-b border-[#e5e3e0] shrink-0">
-        <div class="font-serif text-base tracking-widest uppercase font-light">The Awareness Framework</div>
-        <nav class="hidden md:flex">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "The Awareness Framework",
+      "author": {
+        "@type": "Person",
+        "name": "Sanjeev Khanal",
+        "url": "https://sanjeevkhanal.com.np"
+      },
+      "genre": "Philosophy",
+      "url": "https://book.sanjeevkhanal.com.np"
+    }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <header class="h-16 flex items-center justify-between px-6 lg:px-16 border-b border-[#e5e3e0] shrink-0 w-full bg-[#f9f8f6] z-10">
+        <div class="font-serif text-sm sm:text-base tracking-widest uppercase font-light truncate mr-4">The Awareness Framework</div>
+        <nav class="flex">
             <div class="dropdown">
                 <span class="nav-link" id="authorsBtn">
                     Authors
@@ -137,24 +149,21 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto items-center px-8 gap-12 lg:gap-20 overflow-hidden">
+    <main class="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto items-center px-6 sm:px-8 lg:px-16 gap-8 lg:gap-20 py-8 lg:py-0 overflow-y-auto lg:overflow-hidden w-full">
         
-        <!-- Left: Image Section -->
-        <div class="lg:w-5/12 flex justify-center items-center book-container py-4">
+        <div class="w-full lg:w-5/12 flex justify-center items-center book-container py-2 lg:py-4 shrink-0">
             <img src="book.png" alt="The Awareness Framework Book Cover" class="book-image" onerror="this.src='https://via.placeholder.com/400x600?text=The+Awareness+Framework'">
         </div>
 
-        <!-- Right: Content Section -->
-        <div class="lg:w-7/12 flex flex-col justify-center max-h-full py-4">
-            <div class="mb-8">
-                <h1 class="font-serif text-4xl lg:text-5xl font-normal leading-tight mb-3">The Awareness Framework</h1>
-                <div class="flex items-center gap-4">
+        <div class="w-full lg:w-7/12 flex flex-col justify-center max-h-full py-2 lg:py-4">
+            <div class="mb-6 lg:mb-8 text-center lg:text-left">
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight mb-3">The Awareness Framework</h1>
+                <div class="flex items-center justify-center lg:justify-start gap-4">
                     <span class="text-xs font-bold text-[#a6894b] tracking-[0.2em] uppercase">ISBN: 9789937192835</span>
                 </div>
             </div>
 
-            <div class="space-y-6 text-[15px] leading-relaxed text-gray-600 max-w-xl text-justify">
+            <div class="space-y-4 lg:space-y-6 text-[14px] sm:text-[15px] leading-relaxed text-gray-600 max-w-xl text-left sm:text-justify mx-auto lg:mx-0">
                 <p>
                     Reality is an emergent function of three interacting vectors. It begins with 
                     <strong>Observation</strong>, the immediate data of present moment acting as initiation mechanism. 
@@ -163,23 +172,41 @@
                     of recurring geometries within the flux of experience.
                 </p>
 
-                <p class="pt-4 text-gray-900 font-medium">
+                <p class="pt-2 text-gray-900 font-medium text-center lg:text-left">
                     This book introduces a simple but powerful idea:<br>
-                    <span class="italic text-[#a6894b] text-lg">Reality emerges through awareness.</span>
+                    <span class="italic text-[#a6894b] text-base sm:text-lg mt-1 block sm:inline">Reality emerges through awareness.</span>
                 </p>
             </div>
 
-            <div class="mt-10 flex items-center gap-12">
-                <a href="#" target="_blank" class="btn-buy">
+            <div class="mt-8 lg:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full max-w-xl mx-auto lg:mx-0">
+                <a href="#" target="_blank" class="btn-buy justify-center h-[46px]">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                     GET A COPY
                 </a>
+
+                <div class="relative group w-full sm:w-auto">
+                    <a href="script.txt" download="script.py" class="border border-[#a6894b] text-[#a6894b] hover:bg-[#a6894b] hover:text-white px-6 py-3 rounded-[4px] font-semibold text-[13px] tracking-wider transition-all duration-200 uppercase flex items-center justify-center gap-2.5 h-[46px] w-full">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        DOWNLOAD SCRIPT
+                    </a>
+                    
+                    <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 w-72 bg-white text-gray-700 text-xs p-4 rounded border border-[#e5e3e0] shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 text-left normal-case font-normal leading-relaxed pointer-events-none sm:pointer-events-auto">
+                        <p class="font-semibold text-gray-900 mb-1">💻 Optimized for Google Colab</p>
+                        <p class="mb-2">Simply copy the text file code, paste it into a Google Colab notebook cell, and execute it to run the simulation output visualizer.</p>
+                        <div class="border-t border-gray-100 my-2"></div>
+                        <p class="text-gray-500 italic">Open to adjustments or extended developments. Any genuine collaborative contributions are highly appreciated!</p>
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-white"></div>
+                    </div>
+                </div>
             </div>
+            
+            <p class="text-[11px] text-gray-400 text-center sm:hidden mt-2 italic px-4">
+                * Python simulation script is ready and optimized for Google Colab environments.
+            </p>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="h-12 border-t border-[#e5e3e0] flex items-center justify-between px-8 text-[9px] font-bold text-gray-400 tracking-widest uppercase shrink-0">
+    <footer class="min-h-[3rem] py-4 lg:py-0 border-t border-[#e5e3e0] flex flex-col sm:flex-row items-center justify-between px-6 lg:px-16 text-[9px] font-bold text-gray-400 tracking-widest uppercase gap-2 sm:gap-0 shrink-0 text-center sm:text-left bg-[#f9f8f6]">
         <div>Sanjeev Khanal · Raheel Budha</div>
         <div>Lalitpur, Nepal</div>
     </footer>
